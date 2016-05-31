@@ -9,24 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/hexo-theme-huxblog/img/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
         
-          Welcome to Hux Blog - 不是假发，是桂|Kazila&#39;s Blog
+          测试文档 - 不是假发，是桂|Kazila&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://kaijun.rocks/hexo-theme-huxblog/2015/01/29/hello-2015/">
+    <link rel="canonical" href="http://kaijun.rocks/2016/05/30/测试文档/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/hexo-theme-huxblog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/hexo-theme-huxblog/css/hux-blog.min.css">
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/hexo-theme-huxblog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -67,7 +67,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/hexo-theme-huxblog/">Kazila&#39;s Blog</a>
+            <a class="navbar-brand" href="/">Kazila&#39;s Blog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,7 +80,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/hexo-theme-huxblog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 
                     
@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/hexo-theme-huxblog/about/">About</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/hexo-theme-huxblog/tags/">Tags</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -142,13 +142,13 @@
     <!-- Main Content -->
     
 <!-- Image to hack wechat -->
-<!-- <img src="http://kaijun.rocks/hexo-theme-huxblog/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="http://kaijun.rocks/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('post-bg-2015.jpg')
+        background-image: url('post-bg-测试文档.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -158,14 +158,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/hexo-theme-huxblog/tags/#生活" title="生活">生活</a>
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
                     </div>
-                    <h1>Welcome to Hux Blog</h1>
-                    <h2 class="subheading"> &quot;Hello World, Hello Blog&quot;</h2>
+                    <h1>测试文档</h1>
+                    <h2 class="subheading">CommonJS，RequireJS，SeaJS 归纳笔记</h2>
                     <span class="meta">
-                        Posted by Hux on
-                        2015-01-29
+                        Posted by Kazila on
+                        2016-05-30
                     </span>
                 </div>
             </div>
@@ -184,39 +184,12 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>“Yeah It’s on. ”</p>
+                <p>there is an empty line before</p>
+<blockquote>
+<p>this is a block</p>
 </blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hux 的 Blog 就这么开通了。</p>
-<p><a href="#build">跳过废话，直接看技术实现 </a></p>
-<p>2015 年，Hux 总算有个地方可以好好写点东西了。</p>
-<p>作为一个程序员， Blog 这种轮子要是挂在大众博客程序上就太没意思了。一是觉得大部分 Blog 服务都太丑，二是觉得不能随便定制不好玩。之前因为太懒没有折腾，结果就一直连个写 Blog 的地儿都没有。</p>
-<p>在玩了一段时间知乎之后，答题的快感又激起了我开博客的冲动。之前的<a href="http://huangxuan.me/portfolio" target="_blank" rel="external">个人网站</a>是作品集形式的（现在集成进来了），并不适合用来写博文，一不做二不休，花一天搞一个吧！</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><p id="build"></p></h2><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>接下来说说搭建这个博客的技术细节。  </p>
-<p>正好之前就有关注过 <a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a> + <a href="http://jekyllrb.com/" target="_blank" rel="external">Jekyll</a> 快速 Building Blog 的技术方案，非常轻松时尚。</p>
-<p>其优点非常明显：</p>
-<ul>
-<li><strong>Markdown</strong> 带来的优雅写作体验</li>
-<li>非常熟悉的 Git workflow ，<strong>Git Commit 即 Blog Post</strong></li>
-<li>利用 GitHub Pages 的域名和免费无限空间，不用自己折腾主机<ul>
-<li>如果需要自定义域名，也只需要简单改改 DNS 加个 CNAME 就好了</li>
-</ul>
-</li>
-<li>Jekyll 的自定制非常容易，基本就是个模版引擎</li>
-</ul>
-<p>本来觉得最大的缺点可能是 GitHub 在国内访问起来太慢，所以第二天一起床就到 GitCafe(Chinese GitHub Copy) 迁移了一个<a href="http://huxpro.gitcafe.io" target="_blank" rel="external">镜像</a>出来，结果还是巨慢。</p>
-<p>哥哥可是个前端好嘛！ 果断开 Chrome DevTool 查了下网络请求，原来是 <strong>pending 在了 Google Fonts</strong> 上，页面渲染一直被阻塞到请求超时为止，难怪这么慢。<br>忍痛割爱，只好把 Web Fonts 去了（反正超时看到的也只能是 fallback ），果然一下就正常了，而且 GitHub 和 GitCafe 对比并没有感受到明显的速度差异，虽然 github 的 ping 值明显要高一些，达到了 300ms，于是用 DNSPOD 优化了一下速度。</p>
-<hr>
-<p>配置的过程中也没遇到什么坑，基本就是 Git 的流程，相当顺手</p>
-<p>大的 Jekyll 主题上直接 fork 了 Clean Blog（这个主题也相当有名，就不多赘述了。唯一的缺点大概就是没有标签支持，于是我给它补上了。）</p>
-<p>本地调试环境需要 <code>gem install jekyll</code>，结果 rubygem 的源居然被墙了……后来手动改成了我大淘宝的镜像源才成功</p>
-<p>Theme 的 CSS 是基于 Bootstrap 定制的，看得不爽的地方直接在 Less 里改就好了（平时更习惯 SCSS 些），<strong>不过其实我一直觉得 Bootstrap 在移动端的体验做得相当一般，比我在淘宝参与的团队 CSS 框架差多了……</strong>所以为了体验，也补了不少 CSS 进去</p>
-<p>最后就进入了耗时反而最长的<strong>做图、写字</strong>阶段，也算是进入了<strong>写博客</strong>的正轨，因为是类似 Hack Day 的方式去搭这个站的，所以折腾折腾着大半夜就过去了。</p>
-<p>第二天考虑中文字体的渲染，fork 了 <a href="http://www.typeisbeautiful.com/" target="_blank" rel="external">Type is Beautiful</a> 的 <code>font</code> CSS，调整了字号，适配了 Win 的渣渲染，中英文混排效果好多了。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>回顾这个博客的诞生，纯粹是出于个人兴趣。在知乎相关问题上回答并获得一定的 star 后，我决定把这个博客主题当作一个小小的开源项目来维护。</p>
-<p>在经历 v1.0 - v1.5 的蜕变后，这个博客主题愈发完整，不但增加了诸多 UI 层的优化（opinionated）；在代码层面，更加丰富的配置项也使得这个主题拥有了更好的灵活性与可拓展性。而作为一个开源项目，我也积极的为其完善文档与解决 issue。</p>
-<p>如果你恰好逛到了这里，希望你也能喜欢这个博客主题。</p>
-<p>—— Hux 后记于 2015.10</p>
+<p>this is the main content…</p>
+<p>markdown</p>
 
 
                 <hr>
@@ -226,15 +199,14 @@
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="2015/01/29/hello-2015/"
-                    data-title="Welcome to Hux Blog"
-                    data-url="http://kaijun.rocks/hexo-theme-huxblog/2015/01/29/hello-2015/"
-                    data-images="http://kaijun.rocks/hexo-theme-huxblog/2015/01/29/hello-2015/post-bg-2015.jpg"
-                    data-content="
-“Yeah It’s on. ”
+                    data-thread-key="2016/05/30/测试文档/"
+                    data-title="测试文档"
+                    data-url="http://kaijun.rocks/2016/05/30/测试文档/"
+                    data-images="http://kaijun.rocks/2016/05/30/测试文档/post-bg-测试文档.jpg"
+                    data-content="there is an empty line before
 
-前言Hux 的 Blog 就这么开通了。
-跳过废话，直接... | 不是假发，是桂|Kazila&#39;s Blog " >
+this is a block
+... | 不是假发，是桂|Kazila&#39;s Blog " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -252,10 +224,6 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/hexo-theme-huxblog/2015/04/14/unix-linux-note/" data-toggle="tooltip" data-placement="top" title="Example Post With Default Header Image">&larr; Previous Post</a>
-                        </li>
-                    
                     
                 </ul>
 
@@ -263,9 +231,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="2015/01/29/hello-2015/"
-                        data-title="Welcome to Hux Blog"
-                        data-url="http://kaijun.rocks/hexo-theme-huxblog/2015/01/29/hello-2015/" >
+                        data-thread-key="2016/05/30/测试文档/"
+                        data-title="测试文档"
+                        data-url="http://kaijun.rocks/2016/05/30/测试文档/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
@@ -288,10 +256,10 @@
                 
                 <section>
                     <!-- no hr -->
-                    <h5><a href="/hexo-theme-huxblog/tags/">FEATURED TAGS</a></h5>
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/hexo-theme-huxblog/tags/#生活" title="生活">生活</a>
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
                     </div>
                 </section>
@@ -451,13 +419,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/hexo-theme-huxblog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/hexo-theme-huxblog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/hexo-theme-huxblog/js/hux-blog.min.js"></script>
+<script src="/js/hux-blog.min.js"></script>
 
 
 <!-- async load function -->
@@ -495,7 +463,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://kaijun.rocks/hexo-theme-huxblog/js/jquery.tagcloud.js",function(){
+        async("http://kaijun.rocks/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -559,7 +527,7 @@
 
 
 <!-- Image to hack wechat -->
-<img src="http://kaijun.rocks/hexo-theme-huxblog/img/icon_wechat.png" width="0" height="0" />
+<img src="http://kaijun.rocks/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
