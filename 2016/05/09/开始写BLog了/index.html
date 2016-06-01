@@ -13,11 +13,11 @@
 
     <title>
         
-          Tags - 不是假发，是桂|Kazila&#39;s Blog
+          Hello World - 不是假发，是桂|Kazila&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://kaijun.rocks/tags/">
+    <link rel="canonical" href="http://kaijun.rocks/2016/05/09/开始写BLog了/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,94 +141,243 @@
 
     <!-- Main Content -->
     
-<!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+<!-- Image to hack wechat -->
+<!-- <img src="http://kaijun.rocks/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg-2.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Tags</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Tags.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#随笔" title="随笔">随笔</a>
+                        
+                          <a class="tag" href="/tags/#生活" title="生活">生活</a>
+                        
+                    </div>
+                    <h1>Hello World</h1>
+                    <h2 class="subheading">hello world,hello blog!</h2>
+                    <span class="meta">
+                        Posted by Kazila on
+                        2016-05-09
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 标签云 -->
-            <div id='tag_cloud' class="tags">
-                
-                    <a href="#随笔" title="随笔" rel="1">随笔</a>
-                
-                    <a href="#生活" title="生活" rel="1">生活</a>
-                
-            </div>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            <!-- 标签列表 -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="随笔">
-                    <span class="tag-text">随笔</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/05/09/开始写BLog了/">
-                        <h2 class="post-title">
-                            Hello World
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                hello world,hello blog!
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
+                <blockquote>
+<p>Ok,let’s go!</p>
+</blockquote>
+<hr>
+<h2 id="Catagory"><a href="#Catagory" class="headerlink" title="Catagory"></a>Catagory</h2><ol>
+<li><a href="#前言">前言</a></li>
+<li><a href="#正文">正文</a></li>
+<li><a href="#后记">后记</a></li>
+</ol>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>博客开通了，好开森。<br>也算是有个地方可以记录一下并且监督自己<br>刚开始用Django做了个博客，<del>然后去买了域名和VPS</del>然后就开始用Hexo去搭建博客。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>说一下技术上的事儿吧</p>
+<p>一开始在Django里面是将富文本加进admin里实现文字格式的编辑，而Hexo支持markdown语法，码字而效率比用富文本不知高到哪里去了，目前对语法还不是很熟悉，但是也借这个机会去慢慢掌握。。</p>
+<p>用Hexo+github搭建静态博客网上教程已经很多。刚开始接触也遇到不少问题。装Node.js+git之后本地生成hexo，绑定自己的github仓库。一开始有landscape主题，打开的时候感觉 <del>卧槽报警了</del> hexo功能非常全面，archive，tags，classification，about等等的功能模块都已经写好，新post只要一个命令就可以开始编辑。<br>现在的主题是hexo官方推荐主题里面的<a href="https://github.com/Kaijun/hexo-theme-huxblog/" target="_blank" rel="external">Kaijun</a>。但是没有写archive和classification页(虽然我觉得没什么大用处)，然后是catagory没有右侧，之后有时间可能试着加上去。</p>
+<p> 优点：</p>
+<ul>
+<li>markdown</li>
+<li>自动实现模块功能</li>
+<li>主题更换容易</li>
+<li>空间免费不限量（这个是主要的- -）</li>
+<li>加载可能慢一点</li>
+</ul>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>刚接触，很多地方需要去完善，比如整个相册，加点音乐什么的小东西。之后会把前阵子弄的些乱码扔到Git上。<br>以后会尽量在这里写一些学习和生活的记录作为一点激励吧。。</p>
+
+
                 <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="生活">
-                    <span class="tag-text">生活</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/05/09/开始写BLog了/">
-                        <h2 class="post-title">
-                            Hello World
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                hello world,hello blog!
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
 
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="2016/05/09/开始写BLog了/"
+                    data-title="Hello World"
+                    data-url="http://kaijun.rocks/2016/05/09/开始写BLog了/"
+                    data-images="http://kaijun.rocks/2016/05/09/开始写BLog了/post-bg-2.jpg"
+                    data-content="
+Ok,let’s go!
+
+
+Catagory
+前言
+正文
+后记
+
+
+前言博客开通了，好开森... | 不是假发，是桂|Kazila&#39;s Blog " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多说 Share end-->
+                
+
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2016/05/09/开始写BLog了/"
+                        data-title="Hello World"
+                        data-url="http://kaijun.rocks/2016/05/09/开始写BLog了/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#随笔" title="随笔">随笔</a>
+                        
+                          <a class="tag" href="/tags/#生活" title="生活">生活</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="#">Kaijun&#39;s Blog</a></li>
+                    
+                        <li><a href="#">Hux Blog</a></li>
+                    
+                        <li><a href="#">Foo</a></li>
+                    
+                        <li><a href="#">Bar</a></li>
+                    
+                        <li><a href="#">Example Friends</a></li>
+                    
+                        <li><a href="#">It helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
 
         </div>
     </div>
-</div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'hexogit';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
