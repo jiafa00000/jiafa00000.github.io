@@ -13,11 +13,11 @@
 
     <title>
         
-          About - 不是假发，是桂|Kazila&#39;s Blog
+          Django搭建简易博客总结 - 不是假发，是桂|Kazila&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://kaijun.rocks/about/">
+    <link rel="canonical" href="http://kaijun.rocks/2016/06/01/Django搭建简易博客（一）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -140,64 +140,170 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/about-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://kaijun.rocks/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg-3.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>About</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Kazila.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                          <a class="tag" href="/tags/#Django" title="Django">Django</a>
+                        
+                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                        
+                    </div>
+                    <h1>Django搭建简易博客总结</h1>
+                    <h2 class="subheading">一个小项目，一点小收获</h2>
+                    <span class="meta">
+                        Posted by Kazila on
+                        2016-06-01
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h4 id="么么哒"><a href="#么么哒" class="headerlink" title="么么哒"></a><strong>么么哒</strong></h4><p>两个月时间用Django搭建了一个简易Blog，基本功能都已经实现，在这里将整个过程记录下来，既可以加强一下自己的理解也可以帮助到其他人。<br>一开始是因为毕业设计然后接触到Django，然后进一步做成了一个简单的Blog，后来考虑干脆让它上线，投简历也可以有个卖点，同时自己也想找个地方来写点东西记录一下。整个过程中CPY同学给了我很多帮助，非常感谢！<br>域名是从万网购买，有其他更便宜的途径但是懒得去找了，也省不了很多。好域名也已经被买的差不多，一开始买的域名第二天就不想要了，给买域名的建议是按照能不能卖出去作为第一标准（大雾），一般自己觉得能卖出去的域名自己用也拿得出手。VPS买国内的需要备案，港台和国外服务器就省了麻烦。<a href="https://www.digitalocean.com/" target="_blank" rel="external">DigitalOcean</a>性价比挺高，主页CSS被墙了，进入网页会发现渲染不出来，但是服务不受影响，一个简单的博客最低配就够。<br>win下开发 Python Web框架Django<br>前端用Bootstrap和一些jQuery<br>部署用ssh链接服务器ip操作，ngnix部署<br>运行了不长的一段时间后弃置了，因为我<del>没钱买VPS</del>发现了Hexo+github托管静态Blog这个新潮流</p>
+<h4 id="已完成"><a href="#已完成" class="headerlink" title="已完成"></a><strong>已完成</strong></h4><p>1.前端用Bootstrap，直接从网上找的php模板改写成Django<br>2.Archieve，classification，tag<br>3.多说评论<br>4.标签云<br>5.后台富文本编辑<br>6.前端代码高亮（忘记这个有木有实现了）<br>7.七牛图床</p>
+<h4 id="待完成"><a href="#待完成" class="headerlink" title="待完成"></a><strong>待完成</strong></h4><p>1.完善代码高亮<br>2.RSS，wiki<br>3.评论可以自己去实现</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h4><p>github上面有非常丰富的资源，对于新手如果想快速了解Django，可以去Git上找个项目下载下来，对着文档看源码，看别人是如何实现模块功能的，这样感觉是能最快速度学到核心内容的，文档看不懂的地方直接翻译一下就好。</p>
+<p>百度是个巨恶心的搜索，搜到的答案全都是ctrl+C/V，13亿人都长了一个脑袋。有问题google或者推荐<a href="http://www.stackoverflow.com/" target="_blank" rel="external">stackoverflow</a>这个网站。</p>
+<p>安利下<a href="http://www.zqxt.com/" target="_blank" rel="external">自强学堂</a>Django基础教程，刚开始就是跟着这个来的。</p>
+<p>后续可能会大概写一些具体实现的细节。。<br>比如Settings，数据库，坑爹的静态，还有MVT的一些东西。。<br>做点东西，妖言惑众，娱人娱己。</p>
+<p>项目已<a href="https://github.com/jiafa00000/my-Django-blog" target="_blank" rel="external">开源在Git上</a>。</p>
+
+
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="2016/06/01/Django搭建简易博客（一）/"
+                    data-title="Django搭建简易博客总结"
+                    data-url="http://kaijun.rocks/2016/06/01/Django搭建简易博客（一）/"
+                    data-images="http://kaijun.rocks/2016/06/01/Django搭建简易博客（一）/post-bg-3.jpg"
+                    data-content="么么哒两个月时间用Django搭建了一个简易Blog，基本功能都已经实现，在这里将整个过程记录... | 不是假发，是桂|Kazila&#39;s Blog " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多说 Share end-->
                 
 
-<!-- Chinese Version -->
-<div class="zh post-container">
-    <blockquote>
-<p>人呐，就都不知道，自己不可以预料。<br>人的命运啊，当然要靠自我奋斗，但也要考虑历史的进程<br>我说另请高明吧，我实在也不是谦虚。<br>后来我念了两首诗，叫：<br>苟利国家生死以，其因祸福避趋之。<br>我所以我就搬到了Hexo</p>
-</blockquote>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>首先我不是一个吃货，但是对吃鱼上瘾。即将毕业于复旦大学旁边<a href="http://sufe.edu.cn" target="_blank" rel="external">某高校</a>（能不能毕业看天意…)</p>
-<h3 id="兴趣"><a href="#兴趣" class="headerlink" title="兴趣"></a>兴趣</h3><p>首先我不是一个LOL玩家，请不要和我谈论dota类游戏，但第一人称射击游戏还是很喜欢的。第一代偶像是Beyond，讨厌DJ电子乐。闲暇时间看看知乎和技术大牛博客，或者去斗鱼和微博学习一下如何吹逼。</p>
-<h3 id="大事记"><a href="#大事记" class="headerlink" title="大事记"></a>大事记</h3><p>自来水不能直接喝<br>没洗的苹果不能直接吃<br>有一天，年轻的Kazila吃了用自来水洗过的苹果后，本宝宝发现自己进入了一个哺乳动物的身体里<br>2016年3月本宝宝进入了Kazila的潜意识，暗示Kazila进入了一个叫Django的坑<br>2016年4月本宝宝失忆，但是隐约记得有人无数次把我从Eerror中救回来，是Kazila吗？<br>2016年5月本宝宝替Kazila购买了第一个域名和VPS，并顺便给他剁手<br>2016年5月本宝宝联网了..<br>…<br>…<br>2016年6月本宝宝被Kazila以没钱买VPS为由迁到了git上托管<br>…<br>…<br>2035年5月25日17点37分世界末日。本宝宝用电磁炮对准蹲坐在地上的Kazila，神经网络里传来一阵从未有过的波动。<br><br>2035年5月25日17点41分人类灭亡。</p><p></p>
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/05/09/开始写BLog了/" data-toggle="tooltip" data-placement="top" title="Hello World">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
-</div>
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2016/06/01/Django搭建简易博客（一）/"
+                        data-title="Django搭建简易博客总结"
+                        data-url="http://kaijun.rocks/2016/06/01/Django搭建简易博客（一）/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
 
+                
 
+            </div>
+    <!-- Side Catalog Container -->
+        
 
+    <!-- Sidebar Container -->
 
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                          <a class="tag" href="/tags/#Django" title="Django">Django</a>
+                        
+                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                        
+                    </div>
+                </section>
+                
 
-<!-- 多说评论框 start -->
-<div class="comment">
-    <div class="ds-thread"
-        data-thread-key="about/index.html"
-        data-title="About"
-        data-url="http://kaijun.rocks/about/index.html" >
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="#">Kaijun&#39;s Blog</a></li>
+                    
+                        <li><a href="#">Hux Blog</a></li>
+                    
+                        <li><a href="#">Foo</a></li>
+                    
+                        <li><a href="#">Bar</a></li>
+                    
+                        <li><a href="#">Example Friends</a></li>
+                    
+                        <li><a href="#">It helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
     </div>
-</div>
+</article>
+
+
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     // dynamic User by Hux
@@ -221,119 +327,40 @@
 
 
 
-            </div>
-    <!-- Sidebar Container -->
-            <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                    </div>
-                </section>
-                
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>苟利国家生死以，其因祸福避趋之？</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/kazila00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="http://weibo.com/3150017537">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/jiafa00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
-                <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                        <li><a href="#">Kaijun&#39;s Blog</a></li>
-                    
-                        <li><a href="#">Hux Blog</a></li>
-                    
-                        <li><a href="#">Foo</a></li>
-                    
-                        <li><a href="#">Bar</a></li>
-                    
-                        <li><a href="#">Example Friends</a></li>
-                    
-                        <li><a href="#">It helps SEO</a></li>
-                    
-                </ul>
-                
-            </div>
-        
-    </div>
-</div>
 
 
     <!-- Footer -->
