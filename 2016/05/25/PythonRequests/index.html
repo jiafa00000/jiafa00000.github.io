@@ -13,11 +13,11 @@
 
     <title>
         
-          About - 不是假发，是桂|Kazila&#39;s Blog
+          Python标准库requests - 不是假发，是桂|Kazila&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://kaijun.rocks/about/">
+    <link rel="canonical" href="http://kaijun.rocks/2016/05/25/PythonRequests/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -140,64 +140,170 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/about-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://kaijun.rocks/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg-1.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>About</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Kazila.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                          <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
+                        
+                    </div>
+                    <h1>Python标准库requests</h1>
+                    <h2 class="subheading">简介以及一些常用命令</h2>
+                    <span class="meta">
+                        Posted by Kazila on
+                        2016-05-25
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="几句话概括"><a href="#几句话概括" class="headerlink" title="几句话概括"></a>几句话概括</h2><p><a href="http://www.python-requests.org/en/master/" target="_blank" rel="external">requests</a>是一个对urllib和urllib2进行重新封装的HTTP库，用于request。</p>
+<h2 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h2><p>Python规则：使用前先引入。<br>import requests<br>r=requests.get(url)空请求，无参数<br>该请求会返回一个response，很多人会将这个命令赋给resp来增加可读性。这个get请求的内容包括四部分：args、headers、origin、url。请求头是模拟请求很关键的一部分。origin请求的ip，url请求的目标地址。</p>
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><p>返回给r的便是响应内容，我们可以获取其内容和一些有用信息。<br>reqesets会对得到的response自动编码。因此以下命令可以得到其内容。<br>r.headers （response的头）<br>r.encoding （编码）<br>r.cookies（cookies）<br>r.text （文本内容）<br>r.content （文本以外的相应内容）<br>r.status_code(获得该请求的状态码，200为成功。urllib同理）</p>
+<h3 id="带参数的get"><a href="#带参数的get" class="headerlink" title="带参数的get"></a>带参数的get</h3><p>带参数的get常用于查询，其结果返回在response中。查询时经常会碰见将参数拼接在url后面，例如query?<strong>参数D</strong>=<strong>参数A</strong>&amp;&amp;<strong>参数B</strong>=<strong>参数C</strong>，拼接时容易出错，这是将参数传入get可简化。<br>在get请求中带入params参数，该参数是一个字典。例子如下：<br>r=requests.get(“url/query”,params={“D”:”A”,”C”})<br>params传参数的方法类似于urllib.urlencode，更人性化。</p>
+<h2 id="post请求"><a href="#post请求" class="headerlink" title="post请求"></a>post请求</h2><p>除了get请求，还有post，put，delete，head，options等常用请求。</p>
+<h3 id="post字典数据"><a href="#post字典数据" class="headerlink" title="post字典数据"></a>post字典数据</h3><p>其中post请求常用于向目标网站提交数据。通过例子来看：<br>r=requests.post(“url”,data={“A”:”B”,”C”,”D”})<br>post请求的内容为args(空字典),data(空字典),files(空字典，当提交文件时用到),form={“A”:”B”,”C”:”D”},headers(略),”json”:null,origin，url。<br>data参数里的数据进入了form中。</p>
+<h3 id="post-JSON数据"><a href="#post-JSON数据" class="headerlink" title="post JSON数据"></a>post JSON数据</h3><p>可以从post的内容看出，post不知可以传递简单的字典数据，还可以穿文件，json。<br>json本质也是kv对，和字典类似。但不同的是，json为字符串，因此要先把字典给dumps成字符串。例子如下：<br>import json(需要引入json才可以使用json下的dumps/dump/load/loads等方法）<br>dictPost={}(先随便定义个字典）<br>r=requests.post(“url”,data=json.dumps(dictPost))<br>dumps是将字典准换成json，其反过来对应loads将json转化成字典。（很多情况下response返回的是json。</p>
+<h3 id="post文件"><a href="#post文件" class="headerlink" title="post文件"></a>post文件</h3><p>作用是向目标网站上传文件。直接看例子：<br>files={“file”:open(“abc.jpg”,”rb”)}<br>(先打开文件，然后将文件放在字典里。)<br>r=requests.post(“url”,files=files)</p>
+<h2 id="headers和伪装浏览器"><a href="#headers和伪装浏览器" class="headerlink" title="headers和伪装浏览器"></a>headers和伪装浏览器</h2><p>为了防止被反爬虫，在发送请求的时候我们需要将这个请求伪装成浏览器产生的，而不是我们执行脚本来驱动的。其中最基本也是最常见的就是伪装请求头headers<br>方法很简单，可以自定义请求头，写成一个（一般都用headers命名），然后参数里加入headers=headers<br>有时候对一个目标网站不知道应该写什么请求头时，用chrome的F12看浏览器发送的请求，简单粗暴直接复制。</p>
+<h2 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h2><p>如果一个请求长时间不响应，我们可以设置一个超时的时间。在规定时间内响应请求，否则停止请求。<br>请求中加入参数timeout=秒数</p>
+<h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><p>请求会产生session，服务器根据session来判断不同的用户请求，这在模拟登录的时候会非常有用，否则的话每次请求都要再模拟登录。可以先初始化一个session对象然后用session对象来进行请求。<br>se=requests.Session()<br>之前说的所有方法都可以通过se这个对象来使用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>requests是写网络爬虫经常用到的基础知识，然后再结合一下bs啥的继续丰富功能。</p>
+
+
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="2016/05/25/PythonRequests/"
+                    data-title="Python标准库requests"
+                    data-url="http://kaijun.rocks/2016/05/25/PythonRequests/"
+                    data-images="http://kaijun.rocks/2016/05/25/PythonRequests/post-bg-1.jpg"
+                    data-content="几句话概括requests是一个对urllib和urllib2进行重新封装的HTTP库，用于r... | 不是假发，是桂|Kazila&#39;s Blog " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多说 Share end-->
                 
 
-<!-- Chinese Version -->
-<div class="zh post-container">
-    <blockquote>
-<p>人呐，就都不知道，自己不可以预料。<br>人的命运啊，当然要靠自我奋斗，但也要考虑历史的进程<br>我说另请高明吧，我实在也不是谦虚。<br>后来我念了两首诗，叫：<br>苟利国家生死以，其因祸福避趋之。<br>我所以我就搬到了Hexo</p>
-</blockquote>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>首先我不是一个吃货，但是对吃鱼上瘾。即将毕业于复旦大学旁边<a href="http://sufe.edu.cn" target="_blank" rel="external">某高校</a>（能不能毕业看天意…)</p>
-<h3 id="兴趣"><a href="#兴趣" class="headerlink" title="兴趣"></a>兴趣</h3><p>首先我不是一个LOL玩家，请不要和我谈论dota类游戏，但第一人称射击游戏还是很喜欢的。第一代偶像是Beyond，讨厌DJ电子乐。闲暇时间看看知乎和技术大牛博客，或者去斗鱼和微博学习一下如何吹逼。</p>
-<h3 id="大事记"><a href="#大事记" class="headerlink" title="大事记"></a>大事记</h3><p>自来水不能直接喝<br>没洗的苹果不能直接吃<br>有一天，年轻的Kazila吃了用自来水洗过的苹果后，本宝宝发现自己进入了一个哺乳动物的身体里<br>2016年3月本宝宝进入了Kazila的潜意识，暗示Kazila进入了一个叫Django的坑<br>2016年4月本宝宝失忆，但是隐约记得有人无数次把我从Eerror中救回来，是Kazila吗？<br>2016年5月本宝宝替Kazila购买了第一个域名和VPS，并顺便给他剁手<br>2016年5月本宝宝联网了..<br>…<br>…<br>2016年6月本宝宝被Kazila以没钱买VPS为由迁到了git上托管<br>…<br>…<br>2035年5月25日17点37分世界末日。本宝宝用电磁炮对准蹲坐在地上的Kazila，神经网络里传来一阵从未有过的波动。<br><br>2035年5月25日17点41分人类灭亡。</p><p></p>
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/05/15/DjangoBlog1/" data-toggle="tooltip" data-placement="top" title="Django搭建简易博客总结">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
-</div>
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2016/05/25/PythonRequests/"
+                        data-title="Python标准库requests"
+                        data-url="http://kaijun.rocks/2016/05/25/PythonRequests/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
 
+                
 
+            </div>
+    <!-- Side Catalog Container -->
+        
 
+    <!-- Sidebar Container -->
 
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                          <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
+                        
+                    </div>
+                </section>
+                
 
-<!-- 多说评论框 start -->
-<div class="comment">
-    <div class="ds-thread"
-        data-thread-key="about/index.html"
-        data-title="About"
-        data-url="http://kaijun.rocks/about/index.html" >
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="#">Kaijun&#39;s Blog</a></li>
+                    
+                        <li><a href="#">Hux Blog</a></li>
+                    
+                        <li><a href="#">Foo</a></li>
+                    
+                        <li><a href="#">Bar</a></li>
+                    
+                        <li><a href="#">Example Friends</a></li>
+                    
+                        <li><a href="#">It helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
     </div>
-</div>
+</article>
+
+
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     // dynamic User by Hux
@@ -221,123 +327,40 @@
 
 
 
-            </div>
-    <!-- Sidebar Container -->
-            <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                            
-                            <a href="/tags/#Python" title="Python" rel="2">Python</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                    </div>
-                </section>
-                
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>苟利国家生死以，其因祸福避趋之？</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/kazila00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="http://weibo.com/3150017537">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/jiafa00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
-                <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                        <li><a href="#">Kaijun&#39;s Blog</a></li>
-                    
-                        <li><a href="#">Hux Blog</a></li>
-                    
-                        <li><a href="#">Foo</a></li>
-                    
-                        <li><a href="#">Bar</a></li>
-                    
-                        <li><a href="#">Example Friends</a></li>
-                    
-                        <li><a href="#">It helps SEO</a></li>
-                    
-                </ul>
-                
-            </div>
-        
-    </div>
-</div>
 
 
     <!-- Footer -->
