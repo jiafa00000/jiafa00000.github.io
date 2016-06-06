@@ -13,11 +13,11 @@
 
     <title>
         
-          不是假发，是桂|Kazila&#39;s Blog
+          给github点赞 - 不是假发，是桂|Kazila&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://kaijun.rocks/">
+    <link rel="canonical" href="http://kaijun.rocks/2016/06/06/baidu-github/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -140,257 +140,140 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://kaijun.rocks/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg-1.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Kazila&#39;s Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Write down what you have done</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                        
+                          <a class="tag" href="/tags/#Github" title="Github">Github</a>
+                        
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                        
+                    </div>
+                    <h1>给github点赞</h1>
+                    <h2 class="subheading">解决github pages无法被百度爬虫抓取</h2>
+                    <span class="meta">
+                        Posted by Kazila on
+                        2016-06-06
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>github屏蔽了百度爬虫，因此百度不能自动收录github托管的hexo博客。<br>在知乎上大体找到两种方案</p>
+<h3 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h3><p>用CDN加速，由CDN来代理github pages的博客。有局限性，节点的距离不同而造成403.<br>原文如下：</p>
+<blockquote>
+<p>作者：邹润阳<br>链接：<a href="https://www.zhihu.com/question/30898326/answer/50084979" target="_blank" rel="external">https://www.zhihu.com/question/30898326/answer/50084979</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br>使用 CDN 来代理 Github Pages 上的博客依旧不能很好地解决百度爬虫爬取不到的问题。<br>因为使用 CDN 的原理是让 BaiduSpider 访问 CDN 的代理服务器，而不直接向 Github 发送请求。<br>现在我们做这样一个假设，你所使用的 CDN 为你的网站分配了 6 个节点，A - B - C - D - E - F<br>首先你访问你的网站，会请求离你最近的节点 A。 节点 A 发现自己没有你要的资源，就用你的 User-Agent 向 Github 发送请求，这样获取到了内容，节点 A 就有你的博客的缓存了。节点 A 附近的请求都可以受益于这次缓存。<br>但是如果 BaiduSpider 所处的位置离 B 节点比较近，而 B 节点没有缓存。此时 BaiduSpider 发出请求时，节点 B 就会用 BaiduSpider 的 User-Agent 去向 Github 请求内容。然后就 403 Forbidden了。。<br>所以利用 CDN 来使得百度爬虫能够爬取 Github Pages的方法有一定局限性。当然，如果你的博客访问量很大，比如节点 B 有正常用户访问过你的博客，那 BaiduSpider 也就能够获取到正常的内容了。因为不需要直接与 Github 交互。</p>
+</blockquote>
+<h3 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h3><p>同步到<img src="https://coding.net/gitcafe.html" alt="gitcafe">。gitcafe最近已被coding收购，直接访问<img src="https://coding.net/" alt="coding"><br>大体思路就是让push到github上的文件自动同步到gitcafe上，然后可以考虑更改域名解析设置，让国外解析到github上，国内解析到cafe上。<br>不是来我去捣鼓了。。。<br>知乎上有详细过程。。</p>
 
 
-<div class="post-preview">
+                <hr>
 
-    <a href="/2016/06/06/baidu-github/">
-        <h2 class="post-title">
-            给github点赞
-        </h2>
-        
-            <h3 class="post-subtitle">
-                解决github pages无法被百度爬虫抓取
-            </h3>
-        
-        <div class="post-content-preview">
-            背景github屏蔽了百度爬虫，因此百度不能自动收录github托管的hexo博客。在知乎上大体找到两种方案
-方案一用CDN加速，由CDN来代理github pages的博客。有局限性，节点的距离不同而造成403.原文如下：
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="2016/06/06/baidu-github/"
+                    data-title="给github点赞"
+                    data-url="http://kaijun.rocks/2016/06/06/baidu-github/"
+                    data-images="http://kaijun.rocks/2016/06/06/baidu-github/post-bg-1.jpg"
+                    data-content="背景github屏蔽了百度爬虫，因此百度不能自动收录github托管的hexo博客。在知乎上大... | 不是假发，是桂|Kazila&#39;s Blog " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多说 Share end-->
+                
 
-作者：邹润阳链接：https://www.zhihu.com/question/30898326/answer/50084979来源：知乎著作权归作者所有。商业转载请......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-06-06
-    </p>
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/05/25/PythonRequests/" data-toggle="tooltip" data-placement="top" title="Python标准库requests">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
-</div>
-<hr>
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2016/06/06/baidu-github/"
+                        data-title="给github点赞"
+                        data-url="http://kaijun.rocks/2016/06/06/baidu-github/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
 
-<div class="post-preview">
-
-    <a href="/2016/05/25/PythonRequests/">
-        <h2 class="post-title">
-            Python标准库requests
-        </h2>
-        
-            <h3 class="post-subtitle">
-                简介以及一些常用命令
-            </h3>
-        
-        <div class="post-content-preview">
-            几句话概括requests是一个对urllib和urllib2进行重新封装的HTTP库，用于request。
-请求Python规则：使用前先引入。import requestsr=requests.get(url)空请求，无参数该请求会返回一个response，很多人会将这个命令赋给resp来增加可读性。这个get请求的内容包括四部分：args、headers、origin、url。请求头是......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-05-25
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/05/15/DjangoBlog1/">
-        <h2 class="post-title">
-            Django搭建简易博客总结
-        </h2>
-        
-            <h3 class="post-subtitle">
-                一个小项目，一点小收获
-            </h3>
-        
-        <div class="post-content-preview">
-            么么哒两个月时间用Django搭建了一个简易Blog，基本功能都已经实现，在这里将整个过程记录下来，既可以加强一下自己的理解也可以帮助到其他人。一开始是因为毕业设计然后接触到Django，然后进一步做成了一个简单的Blog，后来考虑干脆让它上线，投简历也可以有个卖点，同时自己也想找个地方来写点东西记录一下。整个过程中CPY同学给了我很多帮助，非常感谢！域名是从万网购买，有其他更便宜的途径但是......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-05-15
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/05/09/HeyMyBlog/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-            <h3 class="post-subtitle">
-                hello world,hello blog!
-            </h3>
-        
-        <div class="post-content-preview">
-            
-Ok,let’s go!
-
-
-Catagory
-前言
-正文
-后记
-
-
-前言博客开通了，好开森。总算有个地方可以清净的写东西，记录一下并且监督自己。刚开始用Django做了个博客，然后去买了域名和VPS然后就开始用Hexo去搭建博客。
-正文说一下技术上的事儿吧
-Django里面是将富文本加进admin里实现文字格式的编辑，而Hexo支持markdown语法，码字而效率比用富文本不知高到哪里去......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-05-09
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
+                
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
                         
-                            
-                            <a href="/tags/#Blog" title="Blog" rel="2">Blog</a>
-                            
+                          <a class="tag" href="/tags/#Github" title="Github">Github</a>
                         
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#Python" title="Python" rel="2">Python</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
                         
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>苟利国家生死以，其因祸福避趋之？</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/kazila00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="http://weibo.com/3150017537">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/jiafa00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -413,9 +296,69 @@ Django里面是将富文本加进admin里实现文字格式的编辑，而Hexo�
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'hexogit';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
