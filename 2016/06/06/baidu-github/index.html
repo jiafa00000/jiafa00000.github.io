@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -193,7 +193,7 @@
 <blockquote>
 <p>作者：邹润阳<br>链接：<a href="https://www.zhihu.com/question/30898326/answer/50084979" target="_blank" rel="external">https://www.zhihu.com/question/30898326/answer/50084979</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br>使用 CDN 来代理 Github Pages 上的博客依旧不能很好地解决百度爬虫爬取不到的问题。<br>因为使用 CDN 的原理是让 BaiduSpider 访问 CDN 的代理服务器，而不直接向 Github 发送请求。<br>现在我们做这样一个假设，你所使用的 CDN 为你的网站分配了 6 个节点，A - B - C - D - E - F<br>首先你访问你的网站，会请求离你最近的节点 A。 节点 A 发现自己没有你要的资源，就用你的 User-Agent 向 Github 发送请求，这样获取到了内容，节点 A 就有你的博客的缓存了。节点 A 附近的请求都可以受益于这次缓存。<br>但是如果 BaiduSpider 所处的位置离 B 节点比较近，而 B 节点没有缓存。此时 BaiduSpider 发出请求时，节点 B 就会用 BaiduSpider 的 User-Agent 去向 Github 请求内容。然后就 403 Forbidden了。。<br>所以利用 CDN 来使得百度爬虫能够爬取 Github Pages的方法有一定局限性。当然，如果你的博客访问量很大，比如节点 B 有正常用户访问过你的博客，那 BaiduSpider 也就能够获取到正常的内容了。因为不需要直接与 Github 交互。</p>
 </blockquote>
-<h3 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h3><p>同步到<img src="https://coding.net/gitcafe.html" alt="gitcafe">。gitcafe最近已被coding收购，直接访问<img src="https://coding.net/" alt="coding"><br>大体思路就是让push到github上的文件自动同步到gitcafe上，然后可以考虑更改域名解析设置，让国外解析到github上，国内解析到cafe上。<br>不是来我去捣鼓了。。。<br>知乎上有详细过程。。</p>
+<h3 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h3><p>同步到<a href="https://coding.net/gitcafe.html" target="_blank" rel="external">gitcafe</a>。gitcafe最近已被coding收购，直接访问<img src="https://coding.net/" alt="coding"><br>大体思路就是让push到github上的文件自动同步到gitcafe上，然后可以考虑更改域名解析设置，让国外解析到github上，国内解析到cafe上。<br>先注册coding，建项目名字和和用户名一样，初始化项目，创建分支，增加ssh。<br>dnspod增加两个：<br>@     CNAME   国内   username.coding.me.<br>www   CNAME   国内   username.coding.me.<br>不说了我去捣鼓了。。。<br>知乎上有详细过程。。</p>
 
 
                 <hr>
@@ -281,17 +281,17 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="#">Kaijun&#39;s Blog</a></li>
+                        <li><a href="https://blog.ikke.moe/">悠悠神代事</a></li>
                     
-                        <li><a href="#">Hux Blog</a></li>
+                        <li><a href="http://cnfeat.com/">读立写生</a></li>
                     
-                        <li><a href="#">Foo</a></li>
+                        <li><a href="http://moonlib.com/">Moonlib</a></li>
                     
-                        <li><a href="#">Bar</a></li>
+                        <li><a href="http://www.heibanke.com/">黑板客</a></li>
                     
-                        <li><a href="#">Example Friends</a></li>
+                        <li><a href="http://jerryzou.com/">Jerryzou</a></li>
                     
-                        <li><a href="#">It helps SEO</a></li>
+                        <li><a href="http://lilydjwg.is-programmer.com/">依云</a></li>
                     
                 </ul>
                 
