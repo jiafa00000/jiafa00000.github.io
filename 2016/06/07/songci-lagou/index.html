@@ -13,11 +13,11 @@
 
     <title>
         
-          Python标准库requests - 不是假发，是桂|Kazila&#39;s Blog
+          两段爬虫代码实例 - 不是假发，是桂|Kazila&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://kaijun.rocks/2016/05/25/PythonRequests/">
+    <link rel="canonical" href="http://kaijun.rocks/2016/06/07/songci-lagou/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -163,11 +163,11 @@
                           <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
                         
                     </div>
-                    <h1>Python标准库requests</h1>
-                    <h2 class="subheading">简介以及一些常用命令</h2>
+                    <h1>两段爬虫代码实例</h1>
+                    <h2 class="subheading">抓拉勾网职位和全宋词的分词处理</h2>
                     <span class="meta">
                         Posted by Kazila on
-                        2016-05-25
+                        2016-06-07
                     </span>
                 </div>
             </div>
@@ -186,18 +186,124 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="几句话概括"><a href="#几句话概括" class="headerlink" title="几句话概括"></a>几句话概括</h2><p><a href="http://www.python-requests.org/en/master/" target="_blank" rel="external">requests</a>是一个对urllib和urllib2进行重新封装的HTTP库，用于request。</p>
-<h2 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h2><p>Python规则：使用前先引入。<br>import requests<br>r=requests.get(url)空请求，无参数<br>该请求会返回一个response，很多人会将这个命令赋给resp来增加可读性。这个get请求的内容包括四部分：args、headers、origin、url。请求头是模拟请求很关键的一部分。origin请求的ip，url请求的目标地址。</p>
-<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><p>返回给r的便是响应内容，我们可以获取其内容和一些有用信息。<br>reqesets会对得到的response自动编码。因此以下命令可以得到其内容。<br>r.headers （response的头）<br>r.encoding （编码）<br>r.cookies（cookies）<br>r.text （文本内容）<br>r.content （文本以外的相应内容）<br>r.status_code(获得该请求的状态码，200为成功。urllib同理）</p>
-<h3 id="带参数的get"><a href="#带参数的get" class="headerlink" title="带参数的get"></a>带参数的get</h3><p>带参数的get常用于查询，其结果返回在response中。查询时经常会碰见将参数拼接在url后面，例如query?<strong>参数D</strong>=<strong>参数A</strong>&amp;&amp;<strong>参数B</strong>=<strong>参数C</strong>，拼接时容易出错，这是将参数传入get可简化。<br>在get请求中带入params参数，该参数是一个字典。例子如下：<br>r=requests.get(“url/query”,params={“D”:”A”,”C”})<br>params传参数的方法类似于urllib.urlencode，更人性化。</p>
-<h2 id="post请求"><a href="#post请求" class="headerlink" title="post请求"></a>post请求</h2><p>除了get请求，还有post，put，delete，head，options等常用请求。</p>
-<h3 id="post字典数据"><a href="#post字典数据" class="headerlink" title="post字典数据"></a>post字典数据</h3><p>其中post请求常用于向目标网站提交数据。通过例子来看：<br>r=requests.post(“url”,data={“A”:”B”,”C”,”D”})<br>post请求的内容为args(空字典),data(空字典),files(空字典，当提交文件时用到),form={“A”:”B”,”C”:”D”},headers(略),”json”:null,origin，url。<br>data参数里的数据进入了form中。</p>
-<h3 id="post-JSON数据"><a href="#post-JSON数据" class="headerlink" title="post JSON数据"></a>post JSON数据</h3><p>可以从post的内容看出，post不知可以传递简单的字典数据，还可以穿文件，json。<br>json本质也是kv对，和字典类似。但不同的是，json为字符串，因此要先把字典给dumps成字符串。例子如下：<br>import json(需要引入json才可以使用json下的dumps/dump/load/loads等方法）<br>dictPost={}(先随便定义个字典）<br>r=requests.post(“url”,data=json.dumps(dictPost))<br>dumps是将字典准换成json，其反过来对应loads将json转化成字典。（很多情况下response返回的是json。</p>
-<h3 id="post文件"><a href="#post文件" class="headerlink" title="post文件"></a>post文件</h3><p>作用是向目标网站上传文件。直接看例子：<br>files={“file”:open(“abc.jpg”,”rb”)}<br>(先打开文件，然后将文件放在字典里。)<br>r=requests.post(“url”,files=files)</p>
-<h2 id="headers和伪装浏览器"><a href="#headers和伪装浏览器" class="headerlink" title="headers和伪装浏览器"></a>headers和伪装浏览器</h2><p>为了防止被反爬虫，在发送请求的时候我们需要将这个请求伪装成浏览器产生的，而不是我们执行脚本来驱动的。其中最基本也是最常见的就是伪装请求头headers<br>方法很简单，可以自定义请求头，写成一个（一般都用headers命名），然后参数里加入headers=headers<br>有时候对一个目标网站不知道应该写什么请求头时，用chrome的F12看浏览器发送的请求，简单粗暴直接复制。</p>
-<h2 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h2><p>如果一个请求长时间不响应，我们可以设置一个超时的时间。在规定时间内响应请求，否则停止请求。<br>请求中加入参数timeout=秒数</p>
-<h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><p>请求会产生session，服务器根据session来判断不同的用户请求，这在模拟登录的时候会非常有用，否则的话每次请求都要再模拟登录。可以先初始化一个session对象然后用session对象来进行请求。<br>se=requests.Session()<br>之前说的所有方法都可以通过se这个对象来使用。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>requests是写网络爬虫经常用到的基础知识，然后再结合一下bs啥的继续丰富功能。</p>
+                <p>之前学习写爬虫的时候得到<a href="http://xlzd.com/" target="_blank" rel="external">xlzd</a>里面crawler系列文章的很大启发，其中入门模拟请求的教程中并没有给出后期具体代码，然后自己写了一下。</p>
+<h3 id="拉勾网职位抓取"><a href="#拉勾网职位抓取" class="headerlink" title="拉勾网职位抓取"></a>拉勾网职位抓取</h3><pre><code>import requests
+from bs4 import BeautifulSoup
+import codecs #更方便的处理中文编码
+import json
+
+DOWNLOAD_URL=&apos;http://www.lagou.com/jobs/positionAjax.json&apos;
+
+def getRensponse(url):
+     headers={
+          &apos;method&apos;: &apos;POST&apos;,
+          &apos;Cookie&apos;:&apos;LGMOID=20160508231322-F5A413F00EDE60084E851F96496F9EBD; user_trace_token=20160508231326-4e347ee63b31485ca82b8e56c6071192; LGUID=20160508231326-699ec1c3-152f-11e6-95ec-5254005c3644; tencentSig=4451457024; index_location_city=%E5%85%A8%E5%9B%BD; _ga=GA1.2.1739800281.1456210797; LGRID=20160509212430-5cc0731c-15e9-11e6-9d6d-525400f775ce; JSESSIONID=735FBD49B382917D84264E9320D9B110; SEARCH_ID=4fa96945b17940bc92f0459508f88ffa; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1462720405,1462798350; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1462805056&apos;,
+         &apos;Host&apos;:&apos;www.lagou.com&apos;,
+         &apos;Origin&apos;:&apos;http://www.lagou.com&apos;,
+         &apos;Referer&apos;:&apos;http://www.lagou.com/zhaopin/Python/&apos;,
+         &apos;User-Agent&apos;:&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36&apos;,
+         &apos;X-Requested-With&apos;:&apos;XMLHttpRequest&apos;,
+
+
+          #&apos;User-Agent&apos;:&apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36&apos;
+     }  #请求头伪装成浏览器
+
+     # data={
+  #        &apos;pn&apos;:&apos;1&apos;
+  #        &apos;kd&apos;:&apos;Python&apos;
+
+     # }
+     resp=requests.post(url,headers=headers)
+     return resp.content
+
+def getDict(response):
+    redict=json.loads(response)
+     #loads是从内存得到json，load是从文件中得到json
+     #json对象转成字典，array数组转成列表或元组
+    data_content=redict[&apos;content&apos;]
+    positionResult=data_content[&apos;positionResult&apos;] 
+    result=positionResult[&apos;result&apos;]
+
+
+    return result
+    def main():
+ #print download_page(DOWNLOAD_URL)
+ #print parse_html(download_page(DOWNLOAD_URL))
+ #以下对程序拼装，将结果输出到一个文件中
+ url=DOWNLOAD_URL
+ # with codecs.open(&apos;position&apos;,&apos;wb&apos;,encoding=&apos;utf-8&apos;) as fp:
+ #     while url:
+ #         response=getRensponse(url)
+ #         dic,url=getDict(response)
+ #         fp.write(u&apos;{dic}\n&apos;.format(movies=&apos;\n&apos;.join(dic)))  
+ #         #=========这里出错了，因为现在这个对象是字典，需要根据Key来映射值，还是需要先对字典内容进行处理才行
+ #         # 考虑先把json转换的字典打印出来看一下什么结构。然后再来提取其中的有用信息。
+ result=getDict(getRensponse(url))
+ for x in xrange(0,14):
+     detail=result[x]
+     for key in detail:
+         print key , detail[key]
+
+if __name__== &apos;__main__&apos;:
+    main()
+    #print getDict(getRensponse(DOWNLOAD_URL))
+
+
+
+
+
+#日志
+#运行出现KeyError，原因是网站返回的Reponse中Key名字由result改为positioResult
+</code></pre><p>遇到过一次json的反爬修改。将目标json的数据结构改变了一下。<br>没写翻页，翻页信息都在请求的form里，很简单。</p>
+<h3 id="宋词的分词处理"><a href="#宋词的分词处理" class="headerlink" title="宋词的分词处理"></a>宋词的分词处理</h3><p>背景是将古诗文网的全宋词爬下来，然后做词频分析。<br>爬取的过程太简单不说了，但是爬取之后的内容是带标点而且是整段，我们需要的格式是一小句一行，没标点。这里遇到了不少坑，具体说一下。<br>查了下有一个jieba分词的python库可用，但不是我们要的结果于是淘汰。<br>用re的split，改了半天总出错。。<br>然后有了如下方法：</p>
+<pre><code>#encoding=utf-8
+import codecs
+import os
+import sys
+
+cutlist=&quot;。！？；——（），、《》·&lt;&gt;&quot;.decode(&apos;utf-8&apos;)
+
+def FindToken(cutlist,char):
+    if char in cutlist:
+        return True
+    else:
+        return False
+
+def Cut(cutlist,lines):
+    l=[] #句子列表，用于存储单个分句成功后的整句内容
+    line=[]
+    count=1
+
+for i in lines:
+    if FindToken(cutlist,i):
+        l.append(&apos;&apos;.join(line))
+        line=[]
+    elif i==&apos; &apos;:
+        continue
+    elif count==len(lines):            
+        l.append(&apos;&apos;.join(line))
+        line=[]
+    else:
+        line.append(i)
+    count+=1
+return l
+
+def main():
+    l=[]
+
+
+     with codecs.open(&apos;result&apos;,&apos;wb&apos;,encoding=&apos;utf-8&apos;) as fp:
+         for lines in file(&quot;Songci.txt&quot;):
+
+             l=Cut(cutlist,lines.decode(&apos;utf-8&apos;)) 
+             for i in l:
+                 if i:
+                     fp.write(i+&quot;\r\n&quot;)
+
+
+if __name__ == &apos;__main__&apos;:
+    main()
+</code></pre><p>先定义一个标点符号的字典cutlist，将爬取的文件打开，一次提取一段，逐个字的判断，如果不再cutlist则将这个字放在一个临时列表里，直到出现一个在cutlist里的标点，然后将临时列表内容给l，临时列表清空执行下一个循环。然后将l每句一行写入文件。这个当然不是最优算法。。。</p>
 
 
                 <hr>
@@ -207,11 +313,11 @@
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="2016/05/25/PythonRequests/"
-                    data-title="Python标准库requests"
-                    data-url="http://kaijun.rocks/2016/05/25/PythonRequests/"
-                    data-images="http://kaijun.rocks/2016/05/25/PythonRequests/post-bg-1.jpg"
-                    data-content="几句话概括requests是一个对urllib和urllib2进行重新封装的HTTP库，用于r... | 不是假发，是桂|Kazila&#39;s Blog " >
+                    data-thread-key="2016/06/07/songci-lagou/"
+                    data-title="两段爬虫代码实例"
+                    data-url="http://kaijun.rocks/2016/06/07/songci-lagou/"
+                    data-images="http://kaijun.rocks/2016/06/07/songci-lagou/post-bg-1.jpg"
+                    data-content="之前学习写爬虫的时候得到xlzd里面crawler系列文章的很大启发，其中入门模拟请求的教程中... | 不是假发，是桂|Kazila&#39;s Blog " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -229,13 +335,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2016/06/06/baidu-github/" data-toggle="tooltip" data-placement="top" title="给github点赞">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2016/05/15/DjangoBlog1/" data-toggle="tooltip" data-placement="top" title="Django搭建简易博客总结">Next Post &rarr;</a>
+                            <a href="/2016/06/06/baidu-github/" data-toggle="tooltip" data-placement="top" title="给github点赞">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -244,9 +346,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="2016/05/25/PythonRequests/"
-                        data-title="Python标准库requests"
-                        data-url="http://kaijun.rocks/2016/05/25/PythonRequests/" >
+                        data-thread-key="2016/06/07/songci-lagou/"
+                        data-title="两段爬虫代码实例"
+                        data-url="http://kaijun.rocks/2016/06/07/songci-lagou/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
