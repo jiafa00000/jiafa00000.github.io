@@ -14,11 +14,11 @@
 
     <title>
         
-          不是假发，是桂|Kazila&#39;s Blog
+          PEP8(Python Enhancement Proposals)要点整理 - 不是假发，是桂|Kazila&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://kaijun.rocks/">
+    <link rel="canonical" href="http://kaijun.rocks/2016/06/13/pep8/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,316 +141,138 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://kaijun.rocks/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg-1.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Kazila&#39;s Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Write down what you have done</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                    </div>
+                    <h1>PEP8(Python Enhancement Proposals)要点整理</h1>
+                    <h2 class="subheading">Style Guide for Python Code(Python编码规范)</h2>
+                    <span class="meta">
+                        Posted by Kazila on
+                        2016-06-13
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <blockquote>
+<p>规范为增加代码代码统一性从而增加可读性<br>必要的时候为提高可读性可违背规范</p>
+</blockquote>
+<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p>每个级别缩进使用4个空格<br>连续行/悬挂行需要进一步缩进<br>连续行的四格缩进是可选的<br>if语句中条件过长且不止一个可以用括号悬挂<br>最后的半个括号放在新行起始位置/同上行缩进<br>用空格不用tab(邪教)<br>每行最大长度79字符，圆括号换行。<br>一句一行</p>
+<h2 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h2><p>两个空行分隔顶层函数定义和类定义<br>单个空行分隔类里面的方法</p>
+<h2 id="源文件编码"><a href="#源文件编码" class="headerlink" title="源文件编码"></a>源文件编码</h2><p>用utf-8（2.X版本用ascii）<br>\u,\x,\U,|N用来转移字符串文本中菲ASCII字符</p>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>单条引入，顺序为标准库/三方库/本地应用和库，每组单空格分隔</p>
+<h2 id="避免不必要空格"><a href="#避免不必要空格" class="headerlink" title="避免不必要空格"></a>避免不必要空格</h2><p>各种括号前后左右不要空格，逗号冒号分号不要空格，多句分行用分号。<br>二元操作符左右各1空格<br>赋值号指示参数与关键字时不空格</p>
+<h2 id="模块级别的构造方法命名"><a href="#模块级别的构造方法命名" class="headerlink" title="模块级别的构造方法命名"></a>模块级别的构造方法命名</h2><p>注释后，引入前的位置。</p>
 
 
-<div class="post-preview">
+                <hr>
 
-    <a href="/2016/06/13/pep8/">
-        <h2 class="post-title">
-            PEP8(Python Enhancement Proposals)要点整理
-        </h2>
-        
-            <h3 class="post-subtitle">
-                Style Guide for Python Code(Python编码规范)
-            </h3>
-        
-        <div class="post-content-preview">
-            
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="2016/06/13/pep8/"
+                    data-title="PEP8(Python Enhancement Proposals)要点整理"
+                    data-url="http://kaijun.rocks/2016/06/13/pep8/"
+                    data-images="http://kaijun.rocks/2016/06/13/pep8/post-bg-1.jpg"
+                    data-content="
 规范为增加代码代码统一性从而增加可读性必要的时候为提高可读性可违背规范
 
-缩进每个级别缩进使用4个空格连续行/悬挂行需要进一步缩进连续行的四格缩进是可选的if语句中条件过长且不止一个可以用括号悬挂最后的半个括号放在新行起始位置/同上行缩进用空格不用tab(邪教)每行最大长度79字符，圆括号换行。一句一行
-空行两个空行分隔顶层函数定义和类定义单个空行分隔类里面的方法
-源文件编码用utf-8（......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-06-13
-    </p>
+缩进每个级别缩进使... | 不是假发，是桂|Kazila&#39;s Blog " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多说 Share end-->
+                
 
-</div>
-<hr>
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/06/07/songci-lagou/" data-toggle="tooltip" data-placement="top" title="两段爬虫代码实例">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
-<div class="post-preview">
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2016/06/13/pep8/"
+                        data-title="PEP8(Python Enhancement Proposals)要点整理"
+                        data-url="http://kaijun.rocks/2016/06/13/pep8/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
 
-    <a href="/2016/06/07/songci-lagou/">
-        <h2 class="post-title">
-            两段爬虫代码实例
-        </h2>
-        
-            <h3 class="post-subtitle">
-                抓拉勾网职位和全宋词的分词处理
-            </h3>
-        
-        <div class="post-content-preview">
-            之前学习写爬虫的时候得到xlzd里面crawler系列文章的很大启发，其中入门模拟请求的教程中并没有给出后期具体代码，然后自己写了一下。
-拉勾网职位抓取import requests
-from bs4 import BeautifulSoup
-import codecs #更方便的处理中文编码
-import json
-
-DOWNLOAD_URL=&apos;http://www.lagou.......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-06-07
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/06/06/baidu-github/">
-        <h2 class="post-title">
-            hexo同时托管在github与gitcafe上
-        </h2>
-        
-            <h3 class="post-subtitle">
-                解决github pages无法被百度爬虫抓取
-            </h3>
-        
-        <div class="post-content-preview">
-            背景github屏蔽了百度爬虫，因此百度不能自动收录github托管的hexo博客。在知乎上大体找到两种方案
-方案一用CDN加速，由CDN来代理github pages的博客。有局限性，节点的距离不同而造成403.原文如下：
-
-作者：邹润阳链接：https://www.zhihu.com/question/30898326/answer/50084979来源：知乎著作权归作者所有。商业转载请......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-06-06
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/05/25/PythonRequests/">
-        <h2 class="post-title">
-            Python标准库requests
-        </h2>
-        
-            <h3 class="post-subtitle">
-                简介以及一些常用命令
-            </h3>
-        
-        <div class="post-content-preview">
-            几句话概括requests是一个对urllib和urllib2进行重新封装的HTTP库，用于request。
-请求Python规则：使用前先引入。import requestsr=requests.get(url)空请求，无参数该请求会返回一个response，很多人会将这个命令赋给resp来增加可读性。这个get请求的内容包括四部分：args、headers、origin、url。请求头是......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-05-25
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/05/15/DjangoBlog1/">
-        <h2 class="post-title">
-            Django搭建简易博客总结
-        </h2>
-        
-            <h3 class="post-subtitle">
-                一个小项目，一点小收获
-            </h3>
-        
-        <div class="post-content-preview">
-            么么哒两个月时间用Django搭建了一个简易Blog，基本功能都已经实现，在这里将整个过程记录下来，既可以加强一下自己的理解也可以帮助到其他人。一开始是因为毕业设计然后接触到Django，然后进一步做成了一个简单的Blog，后来考虑干脆让它上线，投简历也可以有个卖点，同时自己也想找个地方来写点东西记录一下。整个过程中CPY同学给了我很多帮助，非常感谢！域名是从万网购买，有其他更便宜的途径但是......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-05-15
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/05/09/HeyMyBlog/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-            <h3 class="post-subtitle">
-                hello world,hello blog!
-            </h3>
-        
-        <div class="post-content-preview">
-            
-Ok,let’s go!
-
-
-Catagory
-前言
-正文
-后记
-
-
-前言博客开通了，好开森。总算有个地方可以清净的写东西，记录一下并且监督自己。刚开始用Django做了个博客，然后去买了域名和VPS然后就开始用Hexo去搭建博客。
-正文说一下技术上的事儿吧
-Django里面是将富文本加进admin里实现文字格式的编辑，而Hexo支持markdown语法，码字而效率比用富文本不知高到哪里去......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-05-09
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
+                
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
-                            
-                            <a href="/tags/#Python" title="Python" rel="4">Python</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#Blog" title="Blog" rel="2">Blog</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#爬虫" title="爬虫" rel="2">爬虫</a>
-                            
-                        
-                            
-                        
-                            
+                       
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>苟利国家生死以，其因祸福避趋之？</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/kazila00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="http://weibo.com/3150017537">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/jiafa00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -473,9 +295,69 @@ Django里面是将富文本加进admin里实现文字格式的编辑，而Hexo�
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'hexogit';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
