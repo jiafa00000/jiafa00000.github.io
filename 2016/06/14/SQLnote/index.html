@@ -14,11 +14,11 @@
 
     <title>
         
-          不是假发，是桂|Kazila&#39;s Blog
+          MySQL笔记整理 - 不是假发，是桂|Kazila&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://kaijun.rocks/">
+    <link rel="canonical" href="http://kaijun.rocks/2016/06/14/SQLnote/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,346 +141,154 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://kaijun.rocks/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg-1.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Kazila&#39;s Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Write down what you have done</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
+                        
+                          <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+                        
+                    </div>
+                    <h1>MySQL笔记整理</h1>
+                    <h2 class="subheading">然而整理的乱七八糟。。</h2>
+                    <span class="meta">
+                        Posted by Kazila on
+                        2016-06-14
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <blockquote>
+<p>MySQL命令笔记</p>
+</blockquote>
+<h3 id="库与表"><a href="#库与表" class="headerlink" title="库与表"></a>库与表</h3><p>SHOW databases;显示数据库列表<br>SHOW tables;显示库中表<br>USE <em>databasename</em>;选中库<br>DESCRIBE <em>tablename</em>;表结构<br>CREATE DATABASE <em>tatabasename</em>;建库<br>CREATE TABLE <em>tablename</em> ();建表<br>DROP DATABASE <em>databasename</em>;删库<br>DROP TABLE <em>tablename</em>;删表<br>DELETE FROM <em>tablename</em>;清空表</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><p>TINYINT(SIZE，1),SMALLINT(SIZE，2),MEDIUMINT(SIZE，3),INT/INTEGER(SIZE，4),BIGINT(SIZE，8),FLOAT(SIZE,D，4),DOUBLE(SIZE,D，8),DECIMAL(SIZE,D)<br>DECIMAL作为字符串储存的DOUBLE类型。大小为SIZE和D中较大数+2字节</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>CHAR(SIZE)定长字符串最多255<br>VARCHAR(SIZE)变长字符串最多255，超过转换为TEXT<br>TINYTEXT最多255字符<br>TEXT最多65535<br>BLOB用于Binary Large OBjects。最多65535字节<br>MEDIUMTEXT,MEDIUMBLOB,LONGTEXT,LONGBLOB<br>ENUM(x,y,z,ect)输入可能值的列表，可以在enum中列出最大65535个值，不存在插入之则插入空值，按照输入顺序排序。<br>SET和enum类似但set最多只包含64个列表项且 SET 可存储一个以上的选择</p>
+<h3 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h3><p>DATA(),DATATIME(),TIMESTAMP(),TIME(),YEAR()</p>
+<p>SELECT <em> FROM </em>tablename<em>;选中表中所有列<br>SELECT column1,column2.. FROM </em>tablename<em>;选中指定列<br>SELECT DISTINCT column1,colunmn2 FROM </em>tablename*;返回唯一不同值</p>
+<p>SELECT <em>column_name</em><br>FROM <em>table_name</em><br>WHERE <em>column_name=value</em>过滤,提取满足条件的记录<br>AND/OR 条件筛选<br>ORDER BY <em>column1,column2</em> ASC|DESC;升序(默认)/降序</p>
+<p>INSERT INTO <em>table_name</em><br>VALUES <em>(value1,value2,value3…)</em>无指定插入记录</p>
+<p>INSERT INTO <em>table_name</em> (column1,column2,column3..)<br>VALUES (value1,value2…)指定列名插入值</p>
+<p>UPDATE <em>table_name</em><br>SET <em>column1=value1,column2=value2,…<br>WHERE </em>some_column=some_value;更新表中已存在的记录，WHERE语句很重要，若忽略则所有记录被更新。</p>
+<p>DELETE FROM <em>table_name</em><br>WHERE *some_column=some_value;删除指定行，省略where则表清空。</p>
+<h3 id="TOP"><a href="#TOP" class="headerlink" title="TOP"></a>TOP</h3><p>用于规定要返回记录数<br>SELECT <em>column</em><br>FROM <em>table_name</em><br>LIMIT <em>number</em>;<br>限定范围：LIMIT <em>number1</em>,<em>number2</em>; 何处开始何处结束。</p>
+<h3 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h3><p>用于在WHERE子句中搜索列中的指定模式<br>SELECT <em>column_name</em><br>FROM <em>table_name</em><br>WHERE <em>column_name</em> (NOT) LIKE pattern;</p>
+<h3 id="通配符搭配LIKE使用"><a href="#通配符搭配LIKE使用" class="headerlink" title="通配符搭配LIKE使用"></a>通配符搭配LIKE使用</h3><p><strong>%</strong> 替代0或多个字符<br><strong>_</strong> 替代一个字符<br><strong>[charlist]</strong> 字符列中任何单一字符<br><strong>[^chalist]or[!charlist]</strong> 不再字符列中的任何单一字符</p>
+<h3 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h3><p>允许在WHERE中规定多值<br>WHERE <em>column_name</em> IN (value1,value2…);<br>更多情况下IN的列表项不明确，而是通过子查询得到。<br>IN不仅支持数字还支持字符和日期，可以将不同类型数据混合。一个IN只能对一个column对比，指定更多字段用AND/OR。<br>对索引字段查询OR效率高于IN，列表项不确定时必须用IN，子查询表数据小于主查询适合用IN</p>
+<h3 id="MySQL中BETWEEN结果包含两个边界值"><a href="#MySQL中BETWEEN结果包含两个边界值" class="headerlink" title="MySQL中BETWEEN结果包含两个边界值"></a>MySQL中BETWEEN结果包含两个边界值</h3><p>BETWEEN与AND/OR/IN/NOT搭配使用。可筛选字母序列范围/数值范围/日期<br>int时间戳格式筛选效率最高<br>DATA格式：BETWEEN ‘2008-08-08’ AND ‘2009-09-09’<br>DATATIME: BETWEEN ‘2008-09-09 20:00:00’ AND ‘2009-09-09 23:59:59’<br>查询到当前时间数据用&gt;=运算符：<br>WHERE <em>column_time</em> &gt;=’2008-09-09 20:00:00’</p>
+<p>BETWEEN用于判断是否在某开区间，是返回1否则0。BETWEEN与运算符功能类似但不灵活，可是运算级别更高且效率更好。</p>
+<h3 id="AS"><a href="#AS" class="headerlink" title="AS"></a>AS</h3><p>单次查询。<br><strong><em>如何用as将多列合并一列？</em></strong><br>1.查询中涉及不止一个表<br>2.使用函数<br>3.列名长可读性差<br>4.多列合在一起<br>SELECT o.OrderID,o.orderDatec.CustomerName<br>FROM Customers AS c,Orders AS o<br>WHERE c.CustomerName=’<em>some_name</em>‘;</p>
+<h3 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h3><p>两个或多个表的航结合起来<br><strong>INNER JOIN=JOIN</strong> 关键在在一个表中存在至少一个匹配时返回行</p>
 
 
-<div class="post-preview">
+                <hr>
 
-    <a href="/2016/06/14/SQLnote/">
-        <h2 class="post-title">
-            MySQL笔记整理
-        </h2>
-        
-            <h3 class="post-subtitle">
-                然而整理的乱七八糟。。
-            </h3>
-        
-        <div class="post-content-preview">
-            
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="2016/06/14/SQLnote/"
+                    data-title="MySQL笔记整理"
+                    data-url="http://kaijun.rocks/2016/06/14/SQLnote/"
+                    data-images="http://kaijun.rocks/2016/06/14/SQLnote/post-bg-1.jpg"
+                    data-content="
 MySQL命令笔记
 
-库与表SHOW databases;显示数据库列表SHOW tables;显示库中表USE databasename;选中库DESCRIBE tablename;表结构CREATE DATABASE tatabasename;建库CREATE TABLE tablename ();建表DROP DATABASE databasename;删库DROP TABLE ta......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-06-14
-    </p>
+库与表SHOW databases;显示数据库列表SHOW table... | 不是假发，是桂|Kazila&#39;s Blog " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多说 Share end-->
+                
 
-</div>
-<hr>
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/06/13/pep8/" data-toggle="tooltip" data-placement="top" title="PEP8(Python Enhancement Proposals)要点整理">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
-<div class="post-preview">
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2016/06/14/SQLnote/"
+                        data-title="MySQL笔记整理"
+                        data-url="http://kaijun.rocks/2016/06/14/SQLnote/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
 
-    <a href="/2016/06/13/pep8/">
-        <h2 class="post-title">
-            PEP8(Python Enhancement Proposals)要点整理
-        </h2>
-        
-            <h3 class="post-subtitle">
-                Style Guide for Python Code(Python编码规范)
-            </h3>
-        
-        <div class="post-content-preview">
-            
-规范为增加代码代码统一性从而增加可读性必要的时候为提高可读性可违背规范
-
-缩进每个级别缩进使用4个空格连续行/悬挂行需要进一步缩进连续行的四格缩进是可选的if语句中条件过长且不止一个可以用括号悬挂最后的半个括号放在新行起始位置/同上行缩进用空格不用tab(邪教)每行最大长度79字符，圆括号换行。一句一行
-空行两个空行分隔顶层函数定义和类定义单个空行分隔类里面的方法
-源文件编码用utf-8（......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-06-13
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/06/07/songci-lagou/">
-        <h2 class="post-title">
-            两段爬虫代码实例
-        </h2>
-        
-            <h3 class="post-subtitle">
-                抓拉勾网职位和全宋词的分词处理
-            </h3>
-        
-        <div class="post-content-preview">
-            之前学习写爬虫的时候得到xlzd里面crawler系列文章的很大启发，其中入门模拟请求的教程中并没有给出后期具体代码，然后自己写了一下。
-拉勾网职位抓取import requests
-from bs4 import BeautifulSoup
-import codecs #更方便的处理中文编码
-import json
-
-DOWNLOAD_URL=&apos;http://www.lagou.......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-06-07
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/06/06/baidu-github/">
-        <h2 class="post-title">
-            hexo同时托管在github与gitcafe上
-        </h2>
-        
-            <h3 class="post-subtitle">
-                解决github pages无法被百度爬虫抓取
-            </h3>
-        
-        <div class="post-content-preview">
-            背景github屏蔽了百度爬虫，因此百度不能自动收录github托管的hexo博客。在知乎上大体找到两种方案
-方案一用CDN加速，由CDN来代理github pages的博客。有局限性，节点的距离不同而造成403.原文如下：
-
-作者：邹润阳链接：https://www.zhihu.com/question/30898326/answer/50084979来源：知乎著作权归作者所有。商业转载请......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-06-06
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/05/25/PythonRequests/">
-        <h2 class="post-title">
-            Python标准库requests
-        </h2>
-        
-            <h3 class="post-subtitle">
-                简介以及一些常用命令
-            </h3>
-        
-        <div class="post-content-preview">
-            几句话概括requests是一个对urllib和urllib2进行重新封装的HTTP库，用于request。
-请求Python规则：使用前先引入。import requestsr=requests.get(url)空请求，无参数该请求会返回一个response，很多人会将这个命令赋给resp来增加可读性。这个get请求的内容包括四部分：args、headers、origin、url。请求头是......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-05-25
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/05/15/DjangoBlog1/">
-        <h2 class="post-title">
-            Django搭建简易博客总结
-        </h2>
-        
-            <h3 class="post-subtitle">
-                一个小项目，一点小收获
-            </h3>
-        
-        <div class="post-content-preview">
-            么么哒两个月时间用Django搭建了一个简易Blog，基本功能都已经实现，在这里将整个过程记录下来，既可以加强一下自己的理解也可以帮助到其他人。一开始是因为毕业设计然后接触到Django，然后进一步做成了一个简单的Blog，后来考虑干脆让它上线，投简历也可以有个卖点，同时自己也想找个地方来写点东西记录一下。整个过程中CPY同学给了我很多帮助，非常感谢！域名是从万网购买，有其他更便宜的途径但是......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-05-15
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/05/09/HeyMyBlog/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-            <h3 class="post-subtitle">
-                hello world,hello blog!
-            </h3>
-        
-        <div class="post-content-preview">
-            
-Ok,let’s go!
-
-
-Catagory
-前言
-正文
-后记
-
-
-前言博客开通了，好开森。总算有个地方可以清净的写东西，记录一下并且监督自己。刚开始用Django做了个博客，然后去买了域名和VPS然后就开始用Hexo去搭建博客。
-正文说一下技术上的事儿吧
-Django里面是将富文本加进admin里实现文字格式的编辑，而Hexo支持markdown语法，码字而效率比用富文本不知高到哪里去......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Kazila on
-        2016-05-09
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
+                
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                       
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
                         
-                            
-                            <a href="/tags/#Python" title="Python" rel="4">Python</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#Blog" title="Blog" rel="2">Blog</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#爬虫" title="爬虫" rel="2">爬虫</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
+                          <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
                         
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>苟利国家生死以，其因祸福避趋之？</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/kazila00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="http://weibo.com/3150017537">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/jiafa00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -503,9 +311,69 @@ Django里面是将富文本加进admin里实现文字格式的编辑，而Hexo�
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'hexogit';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
