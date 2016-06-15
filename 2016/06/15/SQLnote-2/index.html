@@ -14,11 +14,11 @@
 
     <title>
         
-          About - 不是假发，是桂|Kazila&#39;s Blog
+          MySQL笔记整理(二) - 不是假发，是桂|Kazila&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://kaijun.rocks/about/">
+    <link rel="canonical" href="http://kaijun.rocks/2016/06/15/SQLnote-2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,64 +141,177 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/about-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://kaijun.rocks/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg-1.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>About</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Kazila.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
+                        
+                          <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+                        
+                    </div>
+                    <h1>MySQL笔记整理(二)</h1>
+                    <h2 class="subheading">然而整理的自己都不想看。。</h2>
+                    <span class="meta">
+                        Posted by Kazila on
+                        2016-06-15
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>AUTO_INCREMENT自动编号<br>UNSIGNED无符号/非负<br>UNIQUE KEY唯一约束(可有多个，可以是空值)<br>PRIMARY KEY主键约束，只能有一个，默认NOT NULL<br>DEFAULT默认约束/默认值。（DEFAULT’’)</p>
+<h3 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h3><p>SHOW COLUMNS FROM TALBE<br>SHWO INDEXEX FROM <em>TABLE_NAME</em>查看索引</p>
+<h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><p>约束是保证数据完整性和一致性，分为表级约束（两个或两个以上字段）和列级约束<br>列级约束既可以在列定义时生命也可以在列定义后生命，表级约束只能在列定义后生命。<br>列级约束用的更多<br>NOT NULL DEFAULT没表级，只有列级。<br><strong><em>CHECK约束？？</em></strong></p>
+<p>外键约束保证数据一致性和完整性，实现一对一或一对多关系。<br>1.父表和子表使用相同存储引擎，禁止使用临时表<br>2.数据表存储引擎只能为InnoDB<br>3.外键列(加过FOREIGH关键词的列)和参照列必须有相似的数据类型，数字的长度或是否有符号位必须相同；字符的长度可以不同。(1215错误)<br>4.外键列和参照列必须创建索引。参照列(有FOREIGN)不存在索引则MySQL自动创建，但外键列没索引则不会自动创建<br>关键字<strong>REFERENCES</strong></p>
+<h3 id="外键约束的参照操作"><a href="#外键约束的参照操作" class="headerlink" title="外键约束的参照操作"></a>外键约束的参照操作</h3><p>1.CASCADE 从父表删除或更新且自动删除或更新子表中匹配的行（ON DELETE CASCADE)<br>2.SET NULL 从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该项必须保证子表列没有指定NOT NULL.<br>3.RESTRICT 拒绝对父表的删除或更新<br>4.NO ACTION 标准的sql关键字，在MySQL中与RESTRICT相同。</p>
+<p>先在父表中插入数据再向子表插入<br>在插入数据时，如果插入失败，索引也会递增一个。</p>
+<p>少使用物理外键约束，多用逻辑。因为物理外键约束只在INNODB。逻辑外键为定义表结构时，按照某种表的结构来定义，但是不使用FOREIGN关键词来定义。</p>
+<h3 id="编辑数据表默认存储引擎"><a href="#编辑数据表默认存储引擎" class="headerlink" title="编辑数据表默认存储引擎"></a>编辑数据表默认存储引擎</h3><p>修改MySQL配置文件（默认是INNODB） default-storage-engine=INNODB</p>
+<h3 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h3><p>增删改列/约束<br>添加单列：<br>ALTER TABLE <em>table_name</em> ADD [COLUMN] <em>column_name</em><br><em>column_definition [FIRST|AFTER </em>column_name*]<br>加上FIRST添加到所有列最前，AFTER加在指定列之后，都不用则加到最后。<br>添加单列列不需要加小括号，单列可以指定位置关系，多列不能指定位置关系，只能在下方。</p>
+<p>添加多列：<br>ALTER TABLE <em>table_name</em> ADD [COLUMN]　(<em>column_name column_definition,…</em>)</p>
+<p>删除列用DROP，删除多列时逗号分隔且每列前都用DROP关键字。</p>
+<p>添加主键约束<br>ALTER TABLE <em>table_name</em> ADD [CONSTRAINT[<em>symbol</em>]] PRIMARY KEY <strong>[<em>index_type</em>]</strong> (<em>index_col_name</em>)<br>[CONSTRAINT]可以不添加，但是添加后可以给约束命名。<br>ALTER TABLE <em>table_name</em> DROP PRIMARY KEY<br>主键每张表只有一个，不yong指定名字</p>
+<p>添加唯一约束<br>ALTER TABLE <em>table_name</em> ADD [CONSTRAINT[<em>symbol</em>]] UNIQUE [INDEX|KEY]　[<em>index_type</em>]　(<em>index_col_name,…</em>)<br>删除：ALTER TABLE <em>table_name</em> DROP {INDEX|KEY} <em>index_name</em></p>
+<p>添加外键约束<br>ALTER TABLE <em>table_name</em> ADD [CONSTRAINT[<em>symbol</em>]] FOREIGN KEY [<em>index_type</em>]　(<em>index_col_name</em>)<br><em>references_condition</em><br>删除ALTER TABLE <em>table_name</em> DROP FOREIGN KEY <em>fk_symbol</em></p>
+<p>添加删除默认约束<br>ALTER TABLE <em>table_name</em> ALTER [COLUMN] <em>col_name</em> {SET DEFAULT literal|DROP DEFAULT}</p>
+<h4 id="删除约束有时要指定约束名，先通过show-columns查看。"><a href="#删除约束有时要指定约束名，先通过show-columns查看。" class="headerlink" title="删除约束有时要指定约束名，先通过show columns查看。"></a>删除约束有时要指定约束名，先通过show columns查看。</h4><p>修改列定义<br>ALTER TABLE <em>tbl_name</em> MODIFY [COLUMN] <em>col_name column_definition</em> [FIRST|AFTER]<br><strong>注意，大类型改为小类型可能造成数据丢失</strong><br>修改列名称<br>ALTER TABLE <em>tbl_name</em> CHANGE [COLUMN] <em>old_col_name new_col_name column_definition</em> [FIRST|AFTER]<br>CHANGE的作用大于MODIFY</p>
+<p>修改数据表名字<br>1.ALTER TABLE <em>table_name</em> RENAME [TO|AS] <em>new_tbl_name</em><br>2.RENAME TABLE <em>tbl_name</em> TO <em>new_tbl_name</em> [<em>tbl_name2</em> TO <em>new_tbl_name2</em>]</p>
+<p>使用了索引，或使用了视图存储过程的话，表名曾经被引用，修改后可能会导致某些功能无法运行。</p>
+<h3 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h3><p>1215 外键约束不对，可能是数值类型。<br>ERROR:No query specified 语句末尾多加了分号。<br>1064 MySQL版本和语句不兼容引起的语法错误。。解决方法也具体分析。。右括号前最后一句后不用加逗号。<br>1452 不存在</p>
+
+
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="2016/06/15/SQLnote-2/"
+                    data-title="MySQL笔记整理(二)"
+                    data-url="http://kaijun.rocks/2016/06/15/SQLnote-2/"
+                    data-images="http://kaijun.rocks/2016/06/15/SQLnote-2/post-bg-1.jpg"
+                    data-content="属性AUTO_INCREMENT自动编号UNSIGNED无符号/非负UNIQUE KEY唯一约... | 不是假发，是桂|Kazila&#39;s Blog " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多说 Share end-->
                 
 
-<!-- Chinese Version -->
-<div class="zh post-container">
-    <blockquote>
-<p>人呐，就都不知道，自己不可以预料。<br>人的命运啊，当然要靠自我奋斗，但也要考虑历史的进程<br>我说另请高明吧，我实在也不是谦虚。<br>后来我念了两首诗，叫：<br>苟利国家生死以，其因祸福避趋之。<br>我所以我就搬到了Hexo</p>
-</blockquote>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>我不是一个吃货，但是对吃鱼上瘾。即将毕业于复旦大学旁边<a href="http://sufe.edu.cn" target="_blank" rel="external">某高校</a>（能不能毕业看天意…)</p>
-<h3 id="兴趣"><a href="#兴趣" class="headerlink" title="兴趣"></a>兴趣</h3><p>首先我不是LOL玩家，dota很菜但强行秒选撼地神牛，很久之前擅长CS，对穿越火线嗤之以鼻。第一代偶像是Beyond，比较烦韩国电子乐。偶尔画画，画完就撕，这也太难看了。闲暇时间看看知乎和技术大牛博客，或者去斗鱼和微博学习一下如何吹逼。</p>
-<h3 id="大事记"><a href="#大事记" class="headerlink" title="大事记"></a>大事记</h3><p>自来水不能直接喝<br>没洗的苹果不能直接吃<br>有一天，年轻的Kazila吃了用自来水洗过的苹果后，本宝宝发现自己进入了一个哺乳动物的身体里<br>2016年3月本宝宝进入了Kazila的潜意识，暗示Kazila进入了一个叫Django的坑<br>2016年4月本宝宝失忆，但是隐约记得有人无数次把我从Eerror中救回来，是Kazila吗？<br>2016年5月本宝宝替Kazila购买了第一个域名和VPS，并顺便给他剁手<br>2016年5月本宝宝联网了..<br>…<br>…<br>2016年6月本宝宝被Kazila以没钱买VPS为由迁到了git上托管<br>…<br>…<br>2035年5月25日17点37分世界末日。本宝宝用电磁炮对准蹲坐在地上的Kazila，神经网络里传来一阵从未有过的波动。<br><br>2035年5月25日17点41分人类灭亡。</p><p></p>
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/06/14/LF-and-CRLF/" data-toggle="tooltip" data-placement="top" title="LF and CRLF">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
-</div>
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2016/06/15/SQLnote-2/"
+                        data-title="MySQL笔记整理(二)"
+                        data-url="http://kaijun.rocks/2016/06/15/SQLnote-2/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
 
+                
 
+            </div>
+    <!-- Side Catalog Container -->
+        
 
+    <!-- Sidebar Container -->
 
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
+                        
+                          <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+                        
+                    </div>
+                </section>
+                
 
-<!-- 多说评论框 start -->
-<div class="comment">
-    <div class="ds-thread"
-        data-thread-key="about/index.html"
-        data-title="About"
-        data-url="http://kaijun.rocks/about/index.html" >
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://blog.ikke.moe/">悠悠神代事</a></li>
+                    
+                        <li><a href="http://cnfeat.com/">读立写生</a></li>
+                    
+                        <li><a href="http://moonlib.com/">Moonlib</a></li>
+                    
+                        <li><a href="http://www.heibanke.com/">黑板客</a></li>
+                    
+                        <li><a href="http://jerryzou.com/">Jerryzou</a></li>
+                    
+                        <li><a href="http://lilydjwg.is-programmer.com/">依云</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
     </div>
-</div>
+</article>
+
+
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     // dynamic User by Hux
@@ -222,143 +335,40 @@
 
 
 
-            </div>
-    <!-- Sidebar Container -->
-            <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                            
-                            <a href="/tags/#Python" title="Python" rel="4">Python</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#Blog" title="Blog" rel="2">Blog</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#爬虫" title="爬虫" rel="2">爬虫</a>
-                            
-                        
-                            
-                            <a href="/tags/#MySQL" title="MySQL" rel="2">MySQL</a>
-                            
-                        
-                            
-                            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                    </div>
-                </section>
-                
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>苟利国家生死以，其因祸福避趋之？</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/kazila00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="http://weibo.com/3150017537">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/jiafa00000">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
-                <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                        <li><a href="https://blog.ikke.moe/">悠悠神代事</a></li>
-                    
-                        <li><a href="http://cnfeat.com/">读立写生</a></li>
-                    
-                        <li><a href="http://moonlib.com/">Moonlib</a></li>
-                    
-                        <li><a href="http://www.heibanke.com/">黑板客</a></li>
-                    
-                        <li><a href="http://jerryzou.com/">Jerryzou</a></li>
-                    
-                        <li><a href="http://lilydjwg.is-programmer.com/">依云</a></li>
-                    
-                </ul>
-                
-            </div>
-        
-    </div>
-</div>
 
 
     <!-- Footer -->
